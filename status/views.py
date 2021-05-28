@@ -64,7 +64,8 @@ def insights(request):
 
 def trackurl(url, source):
 	while(True):
-		bh = uquery.objects.filter(urlq=url).first()
+		response=uquery.objects.all().order_by('-timeq')
+		bh = response.filter(urlq=url).first()
 		if bh.startq=='False':
 			break
 		for key in http_code.keys():	
@@ -90,7 +91,8 @@ def status(request):
 	if start1=='True':
 		uquery.objects.create(
 			urlq = url,
-			startq = 'True'
+			startq = 'True',
+			timeq=datetime.now()
 		)
 		process = Thread(target=trackurl, args=(url, source))
 		process.start()
