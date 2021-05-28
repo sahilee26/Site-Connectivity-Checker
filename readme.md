@@ -18,14 +18,21 @@ The main objective of this project is to check the status of sites.
 
 ## Running the Project Locally
 1. First, clone the repository to your local machine:
+  ```bash
   git clone https://github.com/sahilee26/Site-Connectivity-Checker.git
+ ```
 2. Change the current directory to the project directory
+  ```bash
   cd Site-Connectivity-Checker
+   ```
 3. Install required dependencies
+```bash
   pip install requirements.txt
+ ```
 4. Finally run the deployment server using
+```bash
   python manage.py runserver
-  
+   ```
 The project will be available at 127.0.0.1:8000.
 
 
