@@ -62,7 +62,7 @@ def insights(request):
 
 
 
-def trackurl(url, source):
+def trackurl(url, source, interval1):
 	while(True):
 		response=uquery.objects.all().order_by('-timeq')
 		bh = response.filter(urlq=url).first()
@@ -76,12 +76,13 @@ def trackurl(url, source):
 				statusq = key,
 				timeq = datetime.now()
 				)
-		time.sleep(25)
+		time.sleep(int(interval1))
 
 def status(request):
 	url=request.POST['url']
 	start1=request.POST.get('start')
-
+	interval1=request.POST.get('interval')
+	
 	if url[:4] != "http" :
 		return render(request, "cross.html", {'message':"Invalid URL"})
 	try:
@@ -94,7 +95,7 @@ def status(request):
 			startq = 'True',
 			timeq=datetime.now()
 		)
-		process = Thread(target=trackurl, args=(url, source))
+		process = Thread(target=trackurl, args=(url, source, interval1))
 		process.start()
 		response = {
 					"success": True,
