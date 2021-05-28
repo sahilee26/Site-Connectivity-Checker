@@ -63,8 +63,10 @@ def insights(request):
 
 
 def trackurl(url, source):
-	bh = uquery.objects.filter(urlq=url).first()
-	while(bh.startq=='True'):
+	while(True):
+		bh = uquery.objects.filter(urlq=url).first()
+		if bh.startq=='False':
+			break
 		for key in http_code.keys():	
 			if source.status_code==key:
 				query.objects.create(
