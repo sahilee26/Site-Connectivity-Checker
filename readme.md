@@ -11,9 +11,9 @@ The main objective of this project is to check the status of sites.
 * In case of stop pinging URL leave interval field empty
 
 ## Different Endpoints
-/admin: This allows user to login with the admin credentials and manage the project. The user can view the tables of the database and can also edit them directly in the provided interface.
+1. /admin: This allows user to login with the admin credentials and manage the project. The user can view the tables of the database and can also edit them directly in the provided interface.
 
-/insights: This endpoint shows results fetched while pinging queries in paginated form
+2. /insights: This endpoint shows results fetched while pinging queries in paginated form
 
 
 ## Demonstration
