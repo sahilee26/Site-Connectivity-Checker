@@ -18,6 +18,7 @@ class uquery(models.Model):
     _id = models.AutoField(primary_key=True, editable=False)
     urlq = models.CharField(max_length=200)
     startq = models.CharField(max_length=200)
+    timeq=models.DateTimeField(default=datetime.now)
 
     def __str__(self):
         return str(self.urlq)
