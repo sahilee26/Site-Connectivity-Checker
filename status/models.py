@@ -1,4 +1,6 @@
 from django.db import models
+from datetime import datetime
+
 
 class query(models.Model):
     _id = models.AutoField(primary_key=True, editable=False)
@@ -20,5 +22,9 @@ class uquery(models.Model):
     startq = models.CharField(max_length=200)
     timeq=models.DateTimeField(default=datetime.now)
 
+    class Meta:
+    	    indexes = [
+	        models.Index(fields=['-timeq'])
+	    ]
     def __str__(self):
         return str(self.urlq)
